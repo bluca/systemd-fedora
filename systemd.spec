@@ -48,7 +48,7 @@
 
 Name:           systemd
 Url:            https://systemd.io
-# Allow users to specify the version and release when building the rpm by 
+# Allow users to specify the version and release when building the rpm by
 # setting the %%version_override and %%release_override macros.
 # But don't do that on OBS, otherwise the version subst fails, and will be
 # like 257-123-gabcd257.1 instead of 257-123-gabcd
