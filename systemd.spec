@@ -963,6 +963,12 @@ sed -r 's|/system/|/user/|g' %{SOURCE16} >10-timeout-abort.conf.user
 %install
 %meson_install
 
+# Avoid conflict due to other packages shipping /etc/init.d
+# TODO: drop once https://github.com/systemd/systemd/pull/39770 is merged
+%if %{with upstream}
+rm -rf %{buildroot}/etc/init.d/
+%endif
+
 # udev links
 %if "%{_sbindir}" != "%{_bindir}"
 mkdir -p %{buildroot}/%{_sbindir}
